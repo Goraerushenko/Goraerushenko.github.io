@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function getSecret(file, secretPassword) {
+      file.opened = file.opened + 1;
+      if (secretPassword == file.password){
+        return file.contens;
+      }
+      else {
+        return "Invalid password! No secret for you.";
+      }
+    }
+
+    function setSecret(file,secretPassword,secret){
+      if (secretPassword == file.password){
+        file.opened = 0;
+        file.contens = secret;
+      }
+    }
+
+    var superSecretFile ={
+      level:"classified",
+      opened: 0,
+      password:2,
+      contens:"Dr. Evel's next meeting is in Detroit."
+    };
+    var secret1 = getSecret(superSecretFile,5)
+    var secret2 = getSecret(superSecretFile,7)
+    var secret3 = getSecret(superSecretFile,8)
+    console.log(superSecretFile.opened);
+    setSecret(superSecretFile,2,"Dr. Evel's next meeting is in Donetsk.");
+    console.log(superSecretFile.opened);
+    secret = getSecret(superSecretFile,2)
+
+  </script>
+</body>
+</html>

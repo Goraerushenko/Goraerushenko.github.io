@@ -21,11 +21,18 @@ background-color:yellow ;
 }
 .footer{
   background-color: red;
-  clear:both;
+  /*clear:both;*/
 }
 .container{
-    position: relative;
+    /*position: relative;
+      overflow: hidden;*/
 }
+.clearfix:after{
+  content:'';
+  clear:both ;
+  display: block;
+}
+
 /* .menu li{
   float: left;
   list-style: none;
